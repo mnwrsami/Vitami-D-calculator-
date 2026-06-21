@@ -405,7 +405,7 @@
                 </div>
 
                 <div class="note-section">
-                    <p><span class="note-highlight">📌 Note:</span> This is an <span class="note-highlight">estimated calculation</span> based on general scientific data. Actual vitamin D production varies based on individual factors such as genetics, clothing, SPF usage, altitude, weather conditions, and skin sensitivity. Please consult with a healthcare professional for personalized vitamin D recommendations.</p>
+                    <p><span class="note-highlight">📌 Note:</span> This is an <span class="note-highlight">estimated calculation</span> based on general scientific data. Actual vitamin D production varies based on individual factors like age, genetics, diet, and sun exposure patterns.</p>
                 </div>
             </section>
         </main>
@@ -435,8 +435,12 @@
                 return;
             }
             
-            // CALCULATION
-            const vitaminDResult = Math.round(totalDuration * timeFactor * skinTone * regionFactor * 1000);
+            // ADJUSTED CALCULATION - More realistic vitamin D production
+            // Base: 25 IU per minute of sun exposure
+            // Formula: (duration in minutes) × base × timeOfDay × skinTone × region
+            const durationInMinutes = totalDuration * 60;
+            const baseProductionPerMinute = 25;
+            const vitaminDResult = Math.round(durationInMinutes * baseProductionPerMinute * timeFactor * skinTone * regionFactor);
             
             // Display results
             document.getElementById('resultDuration').textContent = totalDuration.toFixed(2);

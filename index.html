@@ -435,12 +435,13 @@
                 return;
             }
             
-            // ADJUSTED CALCULATION - Much more realistic vitamin D production
-            // Base: 3 IU per minute of sun exposure (significantly reduced)
-            // Formula: (duration in minutes) × 3 × timeOfDay × skinTone × region
+            // REALISTIC CALCULATION - Based on scientific data
+            // Average person produces 10-25 IU per minute under ideal conditions (noon, light skin, equatorial)
+            // Using conservative 10 IU as base
+            // Then apply all multiplier factors
+            const baseIUPerMinute = 10;
             const durationInMinutes = totalDuration * 60;
-            const baseProductionPerMinute = 3;
-            const vitaminDResult = Math.round(durationInMinutes * baseProductionPerMinute * timeFactor * skinTone * regionFactor);
+            const vitaminDResult = Math.round(durationInMinutes * baseIUPerMinute * timeFactor * skinTone * regionFactor);
             
             // Display results
             document.getElementById('resultDuration').textContent = totalDuration.toFixed(2);

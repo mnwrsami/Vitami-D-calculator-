@@ -435,11 +435,11 @@
                 return;
             }
             
-            // ADJUSTED CALCULATION - More realistic vitamin D production
-            // Base: 25 IU per minute of sun exposure
-            // Formula: (duration in minutes) × base × timeOfDay × skinTone × region
+            // ADJUSTED CALCULATION - Much more realistic vitamin D production
+            // Base: 3 IU per minute of sun exposure (significantly reduced)
+            // Formula: (duration in minutes) × 3 × timeOfDay × skinTone × region
             const durationInMinutes = totalDuration * 60;
-            const baseProductionPerMinute = 25;
+            const baseProductionPerMinute = 3;
             const vitaminDResult = Math.round(durationInMinutes * baseProductionPerMinute * timeFactor * skinTone * regionFactor);
             
             // Display results
